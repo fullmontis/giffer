@@ -1,10 +1,14 @@
 use strict;
 use warnings;
 
-my $video = $ARGV[0] or die "USAGE: giffer.pl [video] [output] [start time] [length]";
-my $out = $ARGV[1] or die "USAGE: giffer.pl [video] [output] [start time] [length]";
-my $t1 = $ARGV[2] or die "USAGE: giffer.pl [video] [output] [start time] [length]";
-my $t2 = $ARGV[3] or die "USAGE: giffer.pl [video] [output] [start time] [length]";
+sub usage {
+    die "USAGE: giffer.pl [video] [output] [start time] [length]";
+}
+
+my $video = $ARGV[0] or usage();
+my $out = $ARGV[1] or usage();
+my $t1 = $ARGV[2] or usage();
+my $t2 = $ARGV[3] or usage();
 
 # my $gif = $video;
 # $gif =~ s/\.[0-9a-zA-Z]+$/.gif/;
