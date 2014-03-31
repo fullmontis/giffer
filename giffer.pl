@@ -18,10 +18,10 @@ system("ffmpeg -y -i \"$video\" -ss $t1 -t $t2 -an -r 15 -s 320x240 123temp%03d.
 
 my @imagelist = glob "123temp*.jpg";
 my $images = "@imagelist";
-print "Creating animated GIF.......";
-system("convert -delay 1x15 $images -deconstruct -coalesce -layers optimize -matte \"$out\"");
+print "Creating animated GIF.......\n";
+system("convert -delay 1x15 $images +dither -layers Optimize \"$out\"");
 
-print "Removing temp files...";
+print "Removing temp files...\n";
 unlink glob "123temp*.jpg";
 
-print "Done!";
+print "Done!\n";
